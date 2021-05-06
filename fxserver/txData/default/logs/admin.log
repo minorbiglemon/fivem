@@ -1,0 +1,9 @@
+
+================================================================
+======== txAdmin starting - 06/05/2021, 19:59:30
+================================================================
+[20:03:05][127.0.0.1][Adam_Piper] Changing global settings via setup stepper and started Deployer.
+[20:03:23][127.0.0.1][Adam_Piper] Setting recipe.
+[20:08:57][127.0.0.1][Adam_Piper] Running recipe.
+[20:09:33][127.0.0.1][Adam_Piper] Configured server.cfg from deployer.
+[20:09:33][127.0.0.1][Adam_Piper] Completed and committed server deploy.
