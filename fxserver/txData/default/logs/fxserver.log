@@ -1,10 +1,10 @@
 
 ================================================================
-======== FXServer starting - 06/05/2021, 20:09:33
+======== FXServer starting - 08/05/2021, 16:44:59
 ================================================================
 [38;5;161m[    c-scripting-core] Creating script environments for _cfx_internal
 [38;5;73m[ citizen-server-impl] Scanning resources.
-[38;5;73m[ citizen-server-impl] Found 26 resources.
+[38;5;73m[ citizen-server-impl] Found 34 resources.
 [38;5;73m[ citizen-server-impl] Some resources have an outdated resource manifest:
 [38;5;73m[ citizen-server-impl]     - baseevents
 [38;5;73m[ citizen-server-impl]     - sessionmanager
@@ -19,21 +19,31 @@
 [38;5;73m[ citizen-server-impl] Started resource mapmanager
 [38;5;161m[    c-scripting-core] Creating script environments for yarn
 [38;5;73m[ citizen-server-impl] Started resource yarn
-[38;5;73m[ citizen-server-impl] Running build tasks on resource webpack - it'll restart once completed.
-[38;5;163m[    c-resources-core] Could not start dependency webpack for resource chat.
-[38;5;73m[ citizen-server-impl] Couldn't start resource chat.
+[38;5;161m[    c-scripting-core] Creating script environments for webpack
+[38;5;73m[ citizen-server-impl] Started resource webpack
+[38;5;161m[    c-scripting-core] Creating script environments for chat
+[38;5;73m[ citizen-server-impl] Started resource chat
 [38;5;73m[ citizen-server-impl] Started resource spawnmanager
 [38;5;154m[   script:mapmanager] Started gametype Freeroam
 [38;5;73m[ citizen-server-impl] Started resource basic-gamemode
 [38;5;161m[    c-scripting-core] Creating script environments for hardcap
 [38;5;73m[ citizen-server-impl] Started resource hardcap
+[38;5;161m[    c-scripting-core] Creating script environments for mysql-async
+[38;5;73m[ citizen-server-impl] Started resource mysql-async
+[38;5;161m[    c-scripting-core] Creating script environments for mysql-insert
+[38;5;73m[ citizen-server-impl] Started resource mysql-insert
+[38;5;73m[ citizen-server-impl] Started resource menu
+[38;5;73m[ citizen-server-impl] Started resource spawn-player
+[38;5;73m[ citizen-server-impl] Started resource vehicle-spawner
+[38;5;73m[ citizen-server-impl] Started resource rules
+[38;5;73m[ citizen-server-impl] Asset Aston-Martin-Addon/valkyrietp.ytd uses 38.0 MiB of physical memory.
+[38;5;73m[ citizen-server-impl] Started resource Aston-Martin-Addon
+[38;5;73m[ citizen-server-impl] Started resource get-player-coords
 [38;5;66m[          svadhesive] Authenticating server license key...
+[38;5;159m[  script:mysql-async] [mysql-async] [SUCCESS] Database server connection established.
 [38;5;84m[      script:monitor] [txAdminClient] Threads and commands set up. All Ready.
-[38;5;154m[   script:mapmanager] Started map fivem-map-skater
-[38;5;73m[ citizen-server-impl] Started resource fivem-map-skater
-yarn install v1.22.5
-[1/4] Resolving packages...
-[2/4] Fetching packages...
+[38;5;154m[   script:mapmanager] Started map fivem-map-hipster
+[38;5;73m[ citizen-server-impl] Started resource fivem-map-hipster
 [38;5;66m[          svadhesive] Server license key authentication succeeded. Welcome!
 [38;5;73m[ citizen-server-impl]         fff                          
 [38;5;73m[ citizen-server-impl]   cccc ff   xx  xx     rr rr    eee  
@@ -47,34 +57,35 @@ yarn install v1.22.5
 [38;5;73m[ citizen-server-impl] Monetize your server using Tebex! Visit https://tebex.io/fivem for more info.
 [38;5;73m[ citizen-server-impl] ================
 [38;5;73m[ citizen-server-impl] 
-info fsevents@2.3.1: The platform "win32" is incompatible with this module.
-info "fsevents@2.3.1" is an optional dependency and failed compatibility check. Excluding it from installation.
-info fsevents@1.2.13: The platform "win32" is incompatible with this module.
-info "fsevents@1.2.13" is an optional dependency and failed compatibility check. Excluding it from installation.
-[3/4] Linking dependencies...
-[4/4] Building fresh packages...
-Done in 9.02s.
-[38;5;73m[ citizen-server-impl] Build tasks completed - starting resource webpack.
-[38;5;161m[    c-scripting-core] Creating script environments for webpack
-[38;5;73m[ citizen-server-impl] Running build tasks on resource chat - it'll restart once completed.
-[38;5;73m[ citizen-server-impl] Started resource webpack
-[38;5;73m[ citizen-server-impl] server thread hitch warning: timer interval of 180 milliseconds
-yarn install v1.22.5
-[1/4] Resolving packages...
-[2/4] Fetching packages...
-[38;5;73m[ citizen-server-impl] network thread hitch warning: timer interval of 154 milliseconds
-[38;5;73m[ citizen-server-impl] network thread hitch warning: timer interval of 164 milliseconds
-info fsevents@1.2.11: The platform "win32" is incompatible with this module.
-info "fsevents@1.2.11" is an optional dependency and failed compatibility check. Excluding it from installation.
-[3/4] Linking dependencies...
-[4/4] Building fresh packages...
-Done in 18.97s.
-[38;5;21m[      script:webpack] chat: started building webpack.config.js
-[38;5;73m[ citizen-server-impl] server thread hitch warning: timer interval of 6078 milliseconds
-[38;5;21m[      script:webpack] chat: built webpack.config.js
-[38;5;73m[ citizen-server-impl] Build tasks completed - starting resource chat.
-[38;5;161m[    c-scripting-core] Creating script environments for chat
-[38;5;73m[ citizen-server-impl] Started resource chat
+[38;5;134m[      script:hardcap] Connecting: adampiper
 [38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
 [38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Stopping resource menu
+[38;5;73m[ citizen-server-impl] Started resource menu
+[38;5;73m[ citizen-server-impl] Stopping resource menu
+[38;5;73m[ citizen-server-impl] Started resource menu
+[38;5;73m[ citizen-server-impl] Stopping resource menu
+[38;5;73m[ citizen-server-impl] Started resource menu
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Stopping resource menu
+[38;5;73m[ citizen-server-impl] Started resource menu
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Stopping resource menu
+[38;5;73m[ citizen-server-impl] Started resource menu
+[38;5;199m[         script:chat] adampiper:  /menu
+[38;5;199m[         script:chat] adampiper: this is s test
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Stopping resource menu
+[38;5;73m[ citizen-server-impl] Started resource menu
+[38;5;73m[ citizen-server-impl] Stopping resource menu
+[38;5;73m[ citizen-server-impl] Started resource menu
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Stopping resource menu
+[38;5;73m[ citizen-server-impl] Started resource menu
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Stopping resource menu
+[38;5;73m[ citizen-server-impl] Started resource menu
 [38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress

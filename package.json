@@ -1,0 +1,30 @@
+{
+  "name": "fivem",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "C:/Users/adam_/Documents/dev/fivem/fxserver/artifact/FXServer.exe"
+  },
+  "dependencies": {
+    "nodemon": "2.0.7"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-object-rest-spread": "7.12.13",
+    "@babel/plugin-transform-arrow-functions": "7.12.13",
+    "@babel/plugin-transform-template-literals": "7.12.13",
+    "@babel/preset-env": "7.12.17",
+    "@citizenfx/client": "^2.0.3922-1",
+    "@citizenfx/server": "^2.0.3922-1",
+    "babel-cli": "6.26.0",
+    "babel-eslint": "10.1.0",
+    "babel-loader": "8.1.0",
+    "eslint": "7.20.0",
+    "eslint-config-airbnb": "18.1.0",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-jsx-a11y": "6.2.3",
+    "eslint-plugin-react": "7.20.0",
+    "eslint-plugin-react-hooks": "2.5.1",
+    "eslint-plugin-security": "1.4.0"
+  }
+}
