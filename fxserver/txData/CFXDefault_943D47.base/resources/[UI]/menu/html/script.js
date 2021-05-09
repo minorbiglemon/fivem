@@ -32,7 +32,7 @@ $(() => {
   });
 
   document.onkeyup = (data) => {
-    if (data.which === 27) {
+    if (data.which === 27 || (data.which === 77 && !$('#text-box').is(':focus'))) {
       closeUI();
     }
   };
@@ -53,6 +53,21 @@ $(() => {
       .catch((e) => console.log(e))
       .then((resp) => resp.json());
     display(false);
+  });
+
+  const populateMenu = () => {
+    const options = [
+      { id: 'spawn-vehicle', label: 'Spawn Vehicle' },
+      { id: 'get-coordinates', label: 'Get coordinates' }
+    ];
+    const generatedList = options.map((option) => `<li id="menu-options-${option.id}" class="menu-item" tabindex="0">${option.label}</li>`);
+    $('#menu-options').append(generatedList);
+  };
+
+  populateMenu();
+
+  $('#menu-options').focus(() => {
+    console.log($('#menu-options').is(':focus'));
   });
 
   display(false);

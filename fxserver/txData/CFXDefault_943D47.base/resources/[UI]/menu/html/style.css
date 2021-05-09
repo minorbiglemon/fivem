@@ -26,7 +26,7 @@ html, body {
 .text-box {
   flex-direction: column;
   width: 500px;
-  height: 500px;
+  /* height: 500px; */
   background-color: darkgoldenrod;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
@@ -43,7 +43,7 @@ html, body {
 
 button {
   background-color: salmon;
-  height: 60px;
+  height: 40px;
   width: 100%;
   border: 1px solid tan;
   border-radius: 10px;
@@ -51,6 +51,7 @@ button {
   box-shadow: 0px 0px 3px rgba(0,0,0,0.8);
   margin: 10px;
   transition: all 1s;
+  margin: 5px;
 }
 button:hover {
   background-color: #e2695c;
@@ -58,4 +59,30 @@ button:hover {
 }
 button:active {
   box-shadow: 0px 0px 1px rgba(0,0,0,0.5);
+}
+
+.menu-header {
+  width: 100%;
+  background-color: blueviolet;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.no-bullets {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-item {
+  padding: 5px;
+  background-color: darkgray;
+}
+.menu-item:focus, .menu-item:hover, .menu-item:active {
+  background-color: #888888;
+  cursor: pointer;
 }

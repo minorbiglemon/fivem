@@ -4,9 +4,8 @@ const apartments = { x: -268.56005859375, y: -957.6028442382812, z: 31.223138809
 on('onClientGameTypeStart', () => {
   exports.spawnmanager.setAutoSpawnCallback(() => {
     exports.spawnmanager.spawnPlayer({ ...apartments, model: 'a_m_m_skater_01' }, () => {
-      const player = PlayerPedId();
+      const player = GetPlayerIndex();
       const playerName = GetPlayerName(player);
-      console.log(playerName);
       emit('chat:addMessage', { args: [`Welcome ${playerName}!`] });
     });
   });

@@ -10,7 +10,7 @@ function EnableGui(enable)
   })
 end;
 
-function chat(playerName, str, color)
+function Chat(playerName, str, color)
   local message = str;
   if (playerName) then
     message = {'[' .. playerName .. ']', str}
@@ -22,9 +22,14 @@ function chat(playerName, str, color)
   })
 end
 
-if IsControlJustReleased(0,  244) then
-  EnableGui(not display)
-end
+Citizen.CreateThread(function()
+  while true do
+    if IsControlJustReleased(0, 244) then
+      EnableGui(not display)
+    end
+    Citizen.Wait(0)
+  end
+end)
 
 RegisterCommand('menu', function(source)
   EnableGui(true)
@@ -33,17 +38,16 @@ end)
 RegisterNUICallback('main', function(data)
   local player = GetPlayerIndex();
   local playerName = GetPlayerName(player);
-  chat(playerName, data.text, {0,255,0});
+  Chat(playerName, data.text, {0,255,0});
   EnableGui(false);
 end);
 
 RegisterNUICallback('error', function(data)
-  chat(data.error, {255,0,0});
+  Chat(data.error, {255,0,0});
   EnableGui(false);
 end);
 
 RegisterNUICallback('exit', function(data)
-  chat(undefined, 'Exited', {0,255,0});
   EnableGui(false);
 end);
 

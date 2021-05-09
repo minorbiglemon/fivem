@@ -1,10 +1,10 @@
 
 ================================================================
-======== FXServer starting - 08/05/2021, 16:44:59
+======== FXServer starting - 09/05/2021, 17:06:05
 ================================================================
 [38;5;161m[    c-scripting-core] Creating script environments for _cfx_internal
 [38;5;73m[ citizen-server-impl] Scanning resources.
-[38;5;73m[ citizen-server-impl] Found 34 resources.
+[38;5;73m[ citizen-server-impl] Found 38 resources.
 [38;5;73m[ citizen-server-impl] Some resources have an outdated resource manifest:
 [38;5;73m[ citizen-server-impl]     - baseevents
 [38;5;73m[ citizen-server-impl]     - sessionmanager
@@ -33,8 +33,11 @@
 [38;5;161m[    c-scripting-core] Creating script environments for mysql-insert
 [38;5;73m[ citizen-server-impl] Started resource mysql-insert
 [38;5;73m[ citizen-server-impl] Started resource menu
+[38;5;73m[ citizen-server-impl] Started resource RageUI
+[38;5;73m[ citizen-server-impl] Started resource NativeUI
+[38;5;73m[ citizen-server-impl] Started resource native-menu
 [38;5;73m[ citizen-server-impl] Started resource spawn-player
-[38;5;73m[ citizen-server-impl] Started resource vehicle-spawner
+[38;5;73m[ citizen-server-impl] Started resource VehicleSpawner
 [38;5;73m[ citizen-server-impl] Started resource rules
 [38;5;73m[ citizen-server-impl] Asset Aston-Martin-Addon/valkyrietp.ytd uses 38.0 MiB of physical memory.
 [38;5;73m[ citizen-server-impl] Started resource Aston-Martin-Addon
@@ -59,33 +62,94 @@
 [38;5;73m[ citizen-server-impl] 
 [38;5;134m[      script:hardcap] Connecting: adampiper
 [38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Stopping resource native-menu
+[38;5;73m[ citizen-server-impl] Started resource native-menu
 [38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
-[38;5;73m[ citizen-server-impl] Stopping resource menu
-[38;5;73m[ citizen-server-impl] Started resource menu
-[38;5;73m[ citizen-server-impl] Stopping resource menu
-[38;5;73m[ citizen-server-impl] Started resource menu
-[38;5;73m[ citizen-server-impl] Stopping resource menu
-[38;5;73m[ citizen-server-impl] Started resource menu
+[38;5;73m[ citizen-server-impl] Stopping resource native-menu
+[38;5;73m[ citizen-server-impl] Started resource native-menu
+[38;5;73m[ citizen-server-impl] Stopping resource native-menu
+[38;5;73m[ citizen-server-impl] Started resource native-menu
+[38;5;73m[ citizen-server-impl] Stopping resource native-menu
+[38;5;73m[ citizen-server-impl] Started resource native-menu
 [38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
-[38;5;73m[ citizen-server-impl] Stopping resource menu
-[38;5;73m[ citizen-server-impl] Started resource menu
-[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
-[38;5;73m[ citizen-server-impl] Stopping resource menu
-[38;5;73m[ citizen-server-impl] Started resource menu
-[38;5;199m[         script:chat] adampiper:  /menu
-[38;5;199m[         script:chat] adampiper: this is s test
+[38;5;73m[ citizen-server-impl] Stopping resource native-menu
+[38;5;73m[ citizen-server-impl] Started resource native-menu
 [38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
 [38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
 [38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
-[38;5;73m[ citizen-server-impl] Stopping resource menu
-[38;5;73m[ citizen-server-impl] Started resource menu
-[38;5;73m[ citizen-server-impl] Stopping resource menu
-[38;5;73m[ citizen-server-impl] Started resource menu
-[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
-[38;5;73m[ citizen-server-impl] Stopping resource menu
-[38;5;73m[ citizen-server-impl] Started resource menu
 [38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
 [38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
-[38;5;73m[ citizen-server-impl] Stopping resource menu
-[38;5;73m[ citizen-server-impl] Started resource menu
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Stopping resource native-menu
+[38;5;73m[ citizen-server-impl] Started resource native-menu
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Stopping resource VehicleSpawner
+[38;5;73m[ citizen-server-impl] Started resource VehicleSpawner
+[38;5;73m[ citizen-server-impl] Stopping resource native-menu
+[38;5;73m[ citizen-server-impl] Started resource native-menu
+[38;5;73m[ citizen-server-impl] Stopping resource native-menu
+[38;5;73m[ citizen-server-impl] Started resource native-menu
+[38;5;73m[ citizen-server-impl] Stopping resource VehicleSpawner
+[38;5;73m[ citizen-server-impl] Started resource VehicleSpawner
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Stopping resource VehicleSpawner
+[38;5;73m[ citizen-server-impl] Started resource VehicleSpawner
+[38;5;73m[ citizen-server-impl] Stopping resource native-menu
+[38;5;73m[ citizen-server-impl] Started resource native-menu
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Stopping resource native-menu
+[38;5;73m[ citizen-server-impl] Started resource native-menu
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Stopping resource native-menu
+[38;5;73m[ citizen-server-impl] Started resource native-menu
+[38;5;73m[ citizen-server-impl] Stopping resource VehicleSpawner
+[38;5;73m[ citizen-server-impl] Started resource VehicleSpawner
+[38;5;73m[ citizen-server-impl] Stopping resource native-menu
+[38;5;73m[ citizen-server-impl] Started resource native-menu
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Stopping resource native-menu
+[38;5;73m[ citizen-server-impl] Started resource native-menu
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Stopping resource native-menu
+[38;5;73m[ citizen-server-impl] Started resource native-menu
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Stopping resource native-menu
+[38;5;73m[ citizen-server-impl] Started resource native-menu
+[38;5;73m[ citizen-server-impl] Stopping resource native-menu
+[38;5;73m[ citizen-server-impl] Started resource native-menu
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
+[38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress
 [38;5;73m[ citizen-server-impl] Sending heartbeat to https://servers-ingress-live.fivem.net/ingress

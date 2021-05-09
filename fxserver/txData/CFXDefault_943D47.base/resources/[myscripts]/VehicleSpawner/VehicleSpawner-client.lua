@@ -1,11 +1,26 @@
 ---@diagnostic disable: undefined-global
 RegisterCommand('spawn', function(source, args)
-  -- default vehicle
   local vehicleName = args[1] or 'adder'
+  SpawnVehicle(vehicleName)
+end, false)
 
+RegisterCommand('garage', function()
+  DeleteVehiclePedIsIn()
+end, false)
+
+local Vehicle;
+
+function SpawnVehicle(vehicleName, removeCurrentCar)
+  if not type(vehicleName) then
+    return nil, 'vehicleName not of type string';
+  end
+  removeCurrentCar = removeCurrentCar or true
+  -- if not vehicleName then
+  --   vehicleName = 'adder'
+  -- end
   -- check if the vehicle exists
   if not IsModelInCdimage(vehicleName) or not IsModelAVehicle(vehicleName) then
-    TriggerEvent('chat: addMessage', {
+    TriggerEvent('chat:addMessage', {
       args = {'Vehicle does not exist: ' .. vehicleName}
     })
     return
@@ -19,6 +34,10 @@ RegisterCommand('spawn', function(source, args)
     Wait(500)
   end
 
+  if removeCurrentCar then
+    DeleteVehiclePedIsIn()
+  end
+
   -- get the player's position
   local playerPed = PlayerPedId() -- get the player ped
   local pos = GetEntityCoords(playerPed) -- get the player pos
@@ -27,27 +46,26 @@ RegisterCommand('spawn', function(source, args)
 
   -- set the player ped into the vehicle's driver seat
   SetPedIntoVehicle(playerPed, vehicle, -1)
-
   SetVehicleNumberPlateText(vehicle, 'P1P3R')
-
   -- give the vehicle back to the game (when to despawn)
   SetEntityAsNoLongerNeeded(vehicle)
-
   -- release the model
   SetModelAsNoLongerNeeded(vehicleName)
-
   -- tell the player
   TriggerEvent('chat:addMessage', {
     args = {'Spawned: ' .. vehicleName}
   })
-end, false)
+end
 
-RegisterCommand('garage', function()
+function DeleteVehiclePedIsIn()
   -- get the local player ped
   local playerPed = PlayerPedId()
-  
+
   -- get player vehicle
   local vehicle = GetVehiclePedIsIn(playerPed, false)
 
   DeleteEntity(vehicle)
-end, false)
+end
+
+exports('SpawnVehicle', SpawnVehicle);
+exports('DeleteVehiclePedIsIn', DeleteVehiclePedIsIn);

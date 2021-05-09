@@ -2,7 +2,7 @@ fx_version 'cerulean'
 games { 'gta5' }
 
 author 'Adam Piper'
-description 'Car spawner'
+description 'Weapon spawner'
 version '1.0.0'
 
-client_script 'vehicle-spawner-client.lua'
+client_script 'WeaponSpawner-client.lua'
