@@ -10,5 +10,3 @@ client_scripts {
   '@NativeUI/NativeUI.lua',
   'client.lua'
 }
-
-ui_page 'html/index.html'

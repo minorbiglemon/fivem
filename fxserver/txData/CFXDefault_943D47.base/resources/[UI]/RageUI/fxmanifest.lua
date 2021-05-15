@@ -22,6 +22,6 @@ client_scripts {
 
 }
 
-client_scripts {
-  'menu.lua'
-}
+-- client_scripts {
+--   'menu.lua'
+-- }

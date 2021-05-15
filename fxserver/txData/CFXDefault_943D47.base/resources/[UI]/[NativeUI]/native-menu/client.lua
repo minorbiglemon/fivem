@@ -1,8 +1,10 @@
 Cars = {
   adder = 'Adder',
-  valkyrietp = 'Aston Martin'
+  valkyrietp = 'Aston Martin',
+  mbc63 = 'Mercedes-Benz C63 AMG',
+  fmgt500 = 'Ford Mustang GT 2020'
 }
-
+-- 19gt500
 Weapons = {
   weapon_sniperrifle = 'Sniper',
   weapon_pistol = 'Pistol',
@@ -19,9 +21,9 @@ function SpawnVehicleItem(menu)
   for key, value in pairs(Cars) do
     local carItem = NativeUI.CreateItem(value, 'Spawn ' .. value)
     carItem.Activated = function(sender, item)
-      print(sender)
       if item == carItem then
-        exports.VehicleSpawner.SpawnVehicle(_, key, true);
+        exports.VehicleManager.SpawnVehicle(_, key, true);
+        mainMenu:Visible(false);
       end
     end
     carMenu:AddItem(carItem)
@@ -29,10 +31,15 @@ function SpawnVehicleItem(menu)
   submenu:AddItem(carMenu)
 end
 
-function RepairCar()
-  local playerPed = PlayerPedId();
-  local vehicle = GetVehiclePedIsIn(playerPed, false);
-  SetEntityHealth(vehicle, 200);
+function RepairVehicleItem(menu)
+  local repairOption = NativeUI.CreateItem('Repair vehicle');
+  menu:AddItem(repairOption);
+  repairOption.Activated = function(sender, item)
+    if item == repairOption then
+      exports.VehicleManager.RepairVehicle();
+      mainMenu:Visible(false);
+    end
+  end
 end
 
 function SpawnGunsItem(menu)
@@ -51,6 +58,7 @@ function SpawnGunsItem(menu)
 end
 
 SpawnVehicleItem(mainMenu);
+RepairVehicleItem(mainMenu);
 SpawnGunsItem(mainMenu);
 __menuPool:RefreshIndex();
 
@@ -58,7 +66,6 @@ Citizen.CreateThread(function()
   while true do
     __menuPool:ProcessMenus();
     if IsControlJustPressed(1, 29) then
-      print('pressed B');
       mainMenu:Visible(not mainMenu:Visible());
     end
     Citizen.Wait(0);

@@ -51,8 +51,10 @@ $(() => {
     }
     post('main', { text: input })
       .catch((e) => console.log(e))
-      .then((resp) => resp.json());
-    display(false);
+      .then((resp) => {
+        display(false);
+        return resp.json();
+      });
   });
 
   const populateMenu = () => {

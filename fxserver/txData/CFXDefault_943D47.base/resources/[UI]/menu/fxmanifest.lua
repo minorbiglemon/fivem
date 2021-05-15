@@ -5,7 +5,9 @@ author 'Adam Piper'
 description 'Menu'
 version '1.0.0'
 
-client_script 'client.lua'
+client_scripts {
+  'client.lua'
+}
 
 ui_page 'html/index.html'
 
