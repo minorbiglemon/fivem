@@ -1,8 +1,8 @@
 fx_version 'cerulean'
-games { 'gta5' }
+game 'gta5'
 
 author 'Adam Piper'
-description 'Weapon spawner'
+description 'freecam'
 version '1.0.0'
 
 client_script 'client.lua'

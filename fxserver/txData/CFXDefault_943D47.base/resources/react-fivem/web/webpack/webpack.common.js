@@ -14,7 +14,10 @@ module.exports = (options) => ({
         test: /\.jsx?$/, // Transform all .js and .jsx files required somewhere with Babel
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
         }
       },
       {
@@ -113,9 +116,6 @@ module.exports = (options) => ({
     ]
   },
   plugins: options.plugins.concat([
-    // Always expose NODE_ENV to webpack, in order to use `process.env.NODE_ENV`
-    // inside your code for any environment checks; Terser will automatically
-    // drop any unreachable code.
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'development'
     })

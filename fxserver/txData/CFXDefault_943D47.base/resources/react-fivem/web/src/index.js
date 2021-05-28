@@ -4,7 +4,9 @@ import './index.css';
 import { ThemeProvider } from '@material-ui/core';
 import { RecoilRoot } from 'recoil';
 import { NuiProvider } from 'fivem-nui-react-lib';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+import { MemoryRouter as Router } from 'react-router-dom';
 import theme from './theme';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -13,11 +15,13 @@ ReactDOM.render(
   <React.StrictMode>
     <RecoilRoot>
       <Router>
-        <NuiProvider resource="react-fivem">
-          <ThemeProvider theme={theme}>
-            <App />
-          </ThemeProvider>
-        </NuiProvider>
+        <DndProvider backend={HTML5Backend}>
+          <NuiProvider resource="react-fivem">
+            <ThemeProvider theme={theme}>
+              <App />
+            </ThemeProvider>
+          </NuiProvider>
+        </DndProvider>
       </Router>
     </RecoilRoot>
   </React.StrictMode>,

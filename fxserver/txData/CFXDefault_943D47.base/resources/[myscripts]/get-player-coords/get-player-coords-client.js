@@ -2,7 +2,8 @@
 const getPlayerCoords = () => {
   const player = PlayerPedId();
   const coords = GetEntityCoords(player);
-  console.log('player coords: ', coords);
+  const heading = GetEntityHeading(player);
+  console.log(`player coords: ${coords}, heading: ${heading}`);
 };
 
 RegisterCommand('coords', () => {

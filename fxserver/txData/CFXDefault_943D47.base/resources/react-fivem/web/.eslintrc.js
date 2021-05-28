@@ -46,7 +46,7 @@ module.exports = {
         tsx: 'never'
       }
     ],
-    'react/prop-types': 'error',
+    'react/prop-types': 'warn',
     'react/jsx-filename-extension': [
       1,
       {

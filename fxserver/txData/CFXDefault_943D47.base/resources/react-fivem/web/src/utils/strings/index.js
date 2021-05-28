@@ -1,6 +1,7 @@
 const capitaliseString = (string) => string.charAt(0).toUpperCase() + string.slice(1);
+const stringToId = (string) => string.replace(/\s+/g, '-').toLowerCase();
 
 export {
-  // eslint-disable-next-line import/prefer-default-export
-  capitaliseString
+  capitaliseString,
+  stringToId
 };

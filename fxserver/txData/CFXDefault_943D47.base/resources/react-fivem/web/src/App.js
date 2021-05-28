@@ -1,50 +1,78 @@
 import React, { useEffect, useState } from 'react';
-import { useCoreService, useVisibility } from './core/hooks/useCoreService';
+import { Box, makeStyles } from '@material-ui/core';
+import { useHotkeys } from 'react-hotkeys-hook';
+import {
+  useCoreService,
+  usePhoneService,
+  useVisibility,
+  usePhoneVisibility
+} from './core/hooks/useCoreService';
 import Phone from './components/Phone';
+import ItemsInterface from './components/ItemsInterface';
+import { StorageProvider } from './components/ItemsInterface/StorageContext';
 
-const useKey = (key) => {
-  const [pressed, setPressed] = useState(false);
-  const match = (event) => key.toLowerCase() === event.key.toLowerCase();
-  const onDown = (event) => {
-    if (match(event)) {
-      setPressed(true);
-    }
-  };
-  const onUp = (event) => {
-    if (match(event)) {
-      setPressed(false);
-    }
-  };
+const post = (endpoint, body) => fetch(`https://react-fivem/${endpoint}`, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json; charset=UTF-8'
+  },
+  body: JSON.stringify(body)
+});
 
-  useEffect(() => {
-    window.addEventListener('keydown', onDown);
-    window.addEventListener('keyup', onUp);
-    return () => {
-      window.removeEventListener('keydown', onDown);
-      window.removeEventListener('keyup', onUp);
-    };
-  }, [key]);
-
-  return pressed;
-};
+const useStyles = makeStyles(() => ({
+  inventoryContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100%'
+  },
+  phoneContainer: {
+    position: 'fixed',
+    right: 25,
+    bottom: 0,
+    transform: ({ togglePhone }) => (togglePhone ? 'translateY(0)' : 'translateY(calc(100% + 10px))'),
+    transition: 'all 1s'
+  }
+}));
 
 function App() {
   useCoreService();
-  const kKey = useKey('k');
-  console.log('kKey', kKey);
+  usePhoneService();
   const visibility = useVisibility();
-  // const [showUI, setShowUI] = useState(visibility);
+  // const visibility = true;
+  const phoneVisibility = usePhoneVisibility();
+  const [togglePhone, setTogglePhone] = useState(false);
+  const classes = useStyles({ togglePhone });
+
+  const handleUI = () => {
+    if (!togglePhone) {
+      post('closeUI', {});
+    }
+  };
+  useHotkeys('k', () => handleUI());
+
+  useEffect(() => {
+    if (phoneVisibility) {
+      setTogglePhone(phoneVisibility);
+    } else {
+      setTogglePhone(phoneVisibility);
+      post('closePhone', {});
+    }
+  }, [phoneVisibility]);
+
   return (
-    // <div style={{ visibility: visibility ? 'visible' : 'hidden', minHeight: '100%' }}>
-    <div style={{ visibility: visibility ? 'visible' : 'visible', minHeight: '100%' }}>
-      <div style={{
-        display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%'
-      }}
-      >
-        <h1 style={{ color: 'white' }}>Testing react app</h1>
+    <>
+      <Box style={{ visibility: visibility ? 'visible' : 'hidden', minHeight: '100%' }}>
+        <Box className={classes.inventoryContainer}>
+          <StorageProvider>
+            <ItemsInterface open={visibility} />
+          </StorageProvider>
+        </Box>
+      </Box>
+      <Box className={classes.phoneContainer}>
         <Phone open />
-      </div>
-    </div>
+      </Box>
+    </>
   );
 }
 

@@ -82,12 +82,6 @@ const Phone = ({ open, time }) => {
     <Paper className={classes.root} elevation={3}>
       <Box className={classes.screen} display="flex" flexGrow={1} flexDirection="column" minHeight="100%">
         <StatusBar time={time} />
-        {/* <TransitionGroup>
-          <CSSTransition
-            key={location.key}
-            classNames="fade"
-            timeout={300}
-          > */}
         <Switch location={location}>
           <Route path="/" exact>
             <AppContentWrapper hideAppBar>
@@ -102,8 +96,6 @@ const Phone = ({ open, time }) => {
             </Route>
           ))}
         </Switch>
-        {/* </CSSTransition>
-        </TransitionGroup> */}
       </Box>
     </Paper>
   );

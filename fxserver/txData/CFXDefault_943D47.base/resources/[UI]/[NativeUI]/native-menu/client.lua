@@ -1,5 +1,7 @@
 Cars = {
   adder = 'Adder',
+  comet = 'Comet',
+  cheetah = 'Cheetah',
   valkyrietp = 'Aston Martin',
   mbc63 = 'Mercedes-Benz C63 AMG',
   fmgt500 = 'Ford Mustang GT 2020'
