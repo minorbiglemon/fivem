@@ -50,6 +50,8 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
+let dragItem;
+
 const Item = ({
   id, storageItem, index, moveItem
 }) => {
@@ -70,7 +72,6 @@ const Item = ({
   //   console.log('test');
   // };
 
-  let dragItem;
   useEffect(() => {
     if (mounted && dragRef && dropRef) {
       $(dragRef.current).draggable({
@@ -85,15 +86,12 @@ const Item = ({
           });
           dragItem = storageItem;
           // setDragItem(storageItem);
-        },
-        drag: () => {
-          console.log(dragItem);
         }
       });
       $(dropRef.current).droppable({
         drop: (e, ui) => {
           console.log('class', dragItem, index);
-          // moveItem(dragItem.index, index);
+          moveItem(dragItem.index, index);
         }
       });
     }

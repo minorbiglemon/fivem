@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   Grid,
   Typography,
@@ -28,7 +28,7 @@ const useStyles = makeStyles(() => ({
     }
   }
 }));
-
+let staticLayoutCopy;
 const Storage = ({
   name,
   size,
@@ -39,12 +39,12 @@ const Storage = ({
   const classes = useStyles();
   const [layout, setLayout] = useState(Array.from(Array(size)));
   const [totalWeight, setTotalWeight] = useState(0);
-  const [dragItem, setDragItem] = useState();
+  const mounted = useRef(false);
 
-  const updateDragItem = (newItem) => {
-    console.log('update', newItem);
-    setDragItem(newItem);
-  };
+  useEffect(() => {
+    mounted.current = true;
+    return () => { mounted.current = false; };
+  }, []);
 
   useEffect(() => {
     const layoutCopy = [...layout];
@@ -56,7 +56,12 @@ const Storage = ({
     const weightTotal = items.reduce((accumulator, item) => (item ? accumulator + (item.weight * item.quantity) : accumulator), 0);
     setTotalWeight(weightTotal);
     setLayout(layoutCopy);
-  }, [items]);
+    if (mounted && !layoutCopy.every((entry) => entry === undefined)) {
+      console.log('mounted');
+      staticLayoutCopy = layoutCopy;
+      console.log(staticLayoutCopy);
+    }
+  }, [items, mounted]);
 
   const getQuantity = (quant) => {
     const sourceQuantInt = parseInt(quant, 10);
@@ -76,38 +81,8 @@ const Storage = ({
     return { source, dest };
   };
 
-  // const moveItem = (destinationIndex) => {
-  //   console.log('moveitem', dragItem.index, destinationIndex);
-  //   const layoutCopy = [...layout];
-  //   let sourceItem = layoutCopy[dragItem.index];
-  //   let destItem = layoutCopy[destinationIndex];
-  //   const quantInt = getQuantity(sourceItem.quantity);
-
-  //   // move specific quantity of one item
-  //   if (sourceItem.id === destItem?.id) {
-  //     const { source, dest } = updateItemQuantity(sourceItem, destItem);
-  //     sourceItem = source;
-  //     destItem = dest;
-  //     if (parseInt(sourceItem.quantity, 10) <= 0) {
-  //       layoutCopy[dragItem.index] = null;
-  //     }
-  //   // moving an item to an empty block based on quantity chosen
-  //   } else if (quantInt < sourceItem.quantity) {
-  //     if (!destItem) {
-  //       destItem = sourceItem;
-  //       sourceItem.quantity -= quantInt;
-  //       layoutCopy[destinationIndex] = { ...sourceItem, quantity: quantInt };
-  //     }
-  //   // swap item with empty item
-  //   } else {
-  //     layoutCopy[dragItem.index] = destItem;
-  //     layoutCopy[destinationIndex] = sourceItem;
-  //   }
-  //   setLayout(layoutCopy);
-  // };
   const moveItem = (sourceIndex, destinationIndex) => {
-    console.log('moveitem', sourceIndex, destinationIndex);
-    const layoutCopy = [...layout];
+    const layoutCopy = [...staticLayoutCopy];
     let sourceItem = layoutCopy[sourceIndex];
     let destItem = layoutCopy[destinationIndex];
     const quantInt = getQuantity(sourceItem.quantity);
@@ -133,6 +108,7 @@ const Storage = ({
       layoutCopy[destinationIndex] = sourceItem;
     }
     setLayout(layoutCopy);
+    staticLayoutCopy = layoutCopy;
   };
 
   return (
@@ -149,8 +125,6 @@ const Storage = ({
             storageItem={{ item, index }}
             index={index}
             moveItem={moveItem}
-            setDragItem={updateDragItem}
-            dragItem={dragItem}
           />
         ))}
       </Grid>
