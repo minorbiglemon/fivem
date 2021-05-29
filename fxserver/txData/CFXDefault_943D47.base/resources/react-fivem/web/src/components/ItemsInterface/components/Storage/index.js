@@ -28,7 +28,9 @@ const useStyles = makeStyles(() => ({
     }
   }
 }));
+
 let staticLayoutCopy;
+
 const Storage = ({
   name,
   size,
@@ -57,9 +59,7 @@ const Storage = ({
     setTotalWeight(weightTotal);
     setLayout(layoutCopy);
     if (mounted && !layoutCopy.every((entry) => entry === undefined)) {
-      console.log('mounted');
       staticLayoutCopy = layoutCopy;
-      console.log(staticLayoutCopy);
     }
   }, [items, mounted]);
 

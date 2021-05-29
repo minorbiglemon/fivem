@@ -59,18 +59,11 @@ const Item = ({
   const dropRef = useRef(null);
   const mounted = useRef(false);
   const { item } = storageItem;
-  // const [dragItem, setDragItem] = useState();
 
   useEffect(() => {
     mounted.current = true;
     return () => { mounted.current = false; };
   }, []);
-
-  // const onUpdate = (e, ui) => {
-  //   const element = $(ref);
-  //   element.sortable('cancel');
-  //   console.log('test');
-  // };
 
   useEffect(() => {
     if (mounted && dragRef && dropRef) {
@@ -85,12 +78,10 @@ const Item = ({
             zIndex: 100
           });
           dragItem = storageItem;
-          // setDragItem(storageItem);
         }
       });
       $(dropRef.current).droppable({
-        drop: (e, ui) => {
-          console.log('class', dragItem, index);
+        drop: () => {
           moveItem(dragItem.index, index);
         }
       });
