@@ -13,7 +13,9 @@ const getAnimationOptions = (value, animationDuration) => ({
   }
 });
 
-const Container = ({ value, color, animationDuration }) => {
+const Container = ({
+  value, color, animationDuration, icon
+}) => {
   const [animatedValue, setAnimatedValue] = useSpring(() => ({
     value: 0.1
   }));
@@ -28,6 +30,7 @@ const Container = ({ value, color, animationDuration }) => {
     <AnimatedWellbeingDial
       value={animatedValue.value.to((val) => Math.floor(val))}
       color={color}
+      icon={icon}
     />
   );
 };
@@ -37,7 +40,8 @@ export default Container;
 Container.propTypes = {
   value: PropTypes.number.isRequired,
   color: PropTypes.string.isRequired,
-  animationDuration: PropTypes.number
+  animationDuration: PropTypes.number,
+  icon: PropTypes.node.isRequired
 };
 
 Container.defaultProps = {
